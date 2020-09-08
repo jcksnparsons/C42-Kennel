@@ -4,10 +4,6 @@ import { Location } from "./location/Location";
 import { Employee } from "./employee/Employee";
 import { Customer } from "./customer/Customer";
 import "./Kennel.css";
-import "./animal/Animals.css";
-import "./location/Location.css";
-import "./employee/Employee.css";
-import "./customer/Customer.css"
 
 export const Kennel = () => (
   <>
@@ -20,27 +16,27 @@ export const Kennel = () => (
     </address>
 
     <h2>Animals</h2>
-    <article className="animals">
+    <article className="page-section">
       <Animal />
       <Animal />
       <Animal />
     </article>
 
     <h2>Locations</h2>
-    <article className="locations">
+    <article className="page-section">
       <Location />
       <Location />
     </article>
 
     <h2>Employees</h2>
-    <article className="employees">
+    <article className="page-section">
       <Employee />
       <Employee />
       <Employee />
     </article>
 
     <h2>Customers</h2>
-    <article className="customers">
+    <article className="page-section">
       <Customer />
       <Customer />
       <Customer />
