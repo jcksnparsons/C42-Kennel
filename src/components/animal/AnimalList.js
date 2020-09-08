@@ -7,8 +7,8 @@ export const AnimalList = () => {
   const { animals, getAnimals } = useContext(AnimalContext);
 
   useEffect(() => {
-      getAnimals()
-  }, [])
+    getAnimals();
+  }, []);
 
   return (
     <div className="page-section">
