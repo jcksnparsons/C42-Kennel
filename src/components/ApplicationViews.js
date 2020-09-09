@@ -10,11 +10,10 @@ import { EmployeeForm } from "./employee/EmployeeForm";
 import { CustomerProvider } from "./customer/CustomerProvider";
 import { CustomerList } from "./customer/CustomerList";
 
-export const ApplicationViews = (props) => {
+export const ApplicationViews = () => {
   return (
     <>
       <LocationProvider>
-        {/* Render the location list when http://localhost:3000/ */}
         <Route exact path="/">
           <LocationList />
         </Route>
@@ -42,7 +41,7 @@ export const ApplicationViews = (props) => {
               exact
               path="/employees/create"
               render={(props) => <EmployeeForm {...props} />}
-            ></Route>
+            />
           </AnimalProvider>
         </LocationProvider>
       </EmployeeProvider>
