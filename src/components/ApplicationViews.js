@@ -12,6 +12,7 @@ import { CustomerProvider } from "./customer/CustomerProvider";
 import { CustomerList } from "./customer/CustomerList";
 import { AnimalForm } from "./animal/AnimalForm";
 import { LocationDetail } from "./location/LocationDetail";
+import { AnimalDetail } from "./animal/AnimalDetail";
 
 export const ApplicationViews = () => {
   return (
@@ -42,6 +43,10 @@ export const ApplicationViews = () => {
               exact
               path="/animals/create"
               render={(props) => <AnimalForm {...props} />}
+            />
+            <Route
+              path="/animals/:animalId(\d+)"
+              render={(props) => <AnimalDetail {...props} />}
             />
           </CustomerProvider>
         </LocationProvider>
