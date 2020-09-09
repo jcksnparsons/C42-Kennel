@@ -6,18 +6,29 @@ import { LocationList } from "./location/LocationList";
 import { AnimalList } from "./animal/AnimalList";
 import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeList } from "./employee/EmployeeList";
+import { EmployeeDetail } from "./employee/EmployeeDetail";
 import { EmployeeForm } from "./employee/EmployeeForm";
 import { CustomerProvider } from "./customer/CustomerProvider";
 import { CustomerList } from "./customer/CustomerList";
-import { AnimalForm } from "./animal/AnimalForm"
+import { AnimalForm } from "./animal/AnimalForm";
+import { LocationDetail } from "./location/LocationDetail";
+import { AnimalDetail } from "./animal/AnimalDetail";
 
 export const ApplicationViews = () => {
   return (
     <>
       <LocationProvider>
-        <Route exact path="/">
-          <LocationList />
-        </Route>
+        <AnimalProvider>
+          <EmployeeProvider>
+            <Route exact path="/">
+              <LocationList />
+            </Route>
+            <Route
+              path="/locations/:locationId(\d+)"
+              render={(props) => <LocationDetail {...props} />}
+            />
+          </EmployeeProvider>
+        </AnimalProvider>
       </LocationProvider>
 
       <AnimalProvider>
@@ -32,6 +43,10 @@ export const ApplicationViews = () => {
               exact
               path="/animals/create"
               render={(props) => <AnimalForm {...props} />}
+            />
+            <Route
+              path="/animals/:animalId(\d+)"
+              render={(props) => <AnimalDetail {...props} />}
             />
           </CustomerProvider>
         </LocationProvider>
@@ -49,6 +64,10 @@ export const ApplicationViews = () => {
               exact
               path="/employees/create"
               render={(props) => <EmployeeForm {...props} />}
+            />
+            <Route
+              path="/employees/:employeeId(\d+)"
+              render={(props) => <EmployeeDetail {...props} />}
             />
           </AnimalProvider>
         </LocationProvider>

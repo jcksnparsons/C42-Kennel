@@ -1,16 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import { EmployeeContext } from "./EmployeeProvider";
-import { LocationContext } from "../location/LocationProvider";
-import { Employee } from "./Employee";
+import { Link } from "react-router-dom";
 import "../../components/Kennel.css";
+import "./Employee.css";
 
 export const EmployeeList = (props) => {
   const { employees, getEmployees } = useContext(EmployeeContext);
-  const { locations, getLocations } = useContext(LocationContext);
 
   useEffect(() => {
     getEmployees();
-    getLocations();
   }, []);
 
   return (
@@ -24,15 +22,12 @@ export const EmployeeList = (props) => {
       </button>
       <div className="page-section">
         {employees.map((employee) => {
-          const employer =
-            locations.find((l) => l.id === employee.locationId) || {};
-
           return (
-            <Employee
-              key={employee.id}
-              employee={employee}
-              location={employer}
-            />
+            <section className="employee">
+              <Link key={employee.id} to={`/employees/${employee.id}`}>
+                <h3>{employee.name}</h3>
+              </Link>
+            </section>
           );
         })}
       </div>
