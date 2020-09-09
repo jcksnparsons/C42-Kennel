@@ -6,10 +6,11 @@ import { LocationList } from "./location/LocationList";
 import { AnimalList } from "./animal/AnimalList";
 import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeList } from "./employee/EmployeeList";
+import { EmployeeDetail } from "./employee/EmployeeDetail";
 import { EmployeeForm } from "./employee/EmployeeForm";
 import { CustomerProvider } from "./customer/CustomerProvider";
 import { CustomerList } from "./customer/CustomerList";
-import { AnimalForm } from "./animal/AnimalForm"
+import { AnimalForm } from "./animal/AnimalForm";
 
 export const ApplicationViews = () => {
   return (
@@ -49,6 +50,10 @@ export const ApplicationViews = () => {
               exact
               path="/employees/create"
               render={(props) => <EmployeeForm {...props} />}
+            />
+            <Route
+              path="/employees/:employeeId(\d+)"
+              render={(props) => <EmployeeDetail {...props} />}
             />
           </AnimalProvider>
         </LocationProvider>
