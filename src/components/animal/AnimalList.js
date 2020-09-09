@@ -4,9 +4,13 @@ import { Animal } from "./Animal";
 import "../../components/Kennel.css";
 
 export const AnimalList = ({ history }) => {
-  const { animals, searchTerms } = useContext(AnimalContext);
+  const { animals, searchTerms, getAnimals } = useContext(AnimalContext);
   const [filteredAnimals, setFiltered] = useState([]);
 
+  useEffect(() => {
+    getAnimals()
+  }, [])
+  
   useEffect(() => {
     if (searchTerms !== "") {
       // If the search field is not blank, display matching animals

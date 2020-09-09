@@ -4,7 +4,7 @@ export const AnimalContext = React.createContext();
 
 export const AnimalProvider = (props) => {
   const [animals, setAnimals] = useState([]);
-  const [ searchTerms, setTerms ] = useState("")
+  const [searchTerms, setTerms] = useState("");
 
   const getAnimals = () => {
     return fetch("http://localhost:8088/animals")
@@ -28,10 +28,6 @@ export const AnimalProvider = (props) => {
     }).then(getAnimals);
   };
 
-  useEffect(() => {
-    getAnimals()
-  }, [])
-
   return (
     <AnimalContext.Provider
       value={{
@@ -40,7 +36,7 @@ export const AnimalProvider = (props) => {
         getAnimals,
         getAnimalById,
         searchTerms,
-        setTerms
+        setTerms,
       }}
     >
       {props.children}
