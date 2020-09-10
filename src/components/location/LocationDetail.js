@@ -15,10 +15,17 @@ export const LocationDetail = (props) => {
       <h5>
         Currently caring for{" "}
         {animalsAtLocation.map((a) => {
-          return (
-            <p key={a.id}>
+          return animalsAtLocation.indexOf(a) ===
+            animalsAtLocation.length - 1 ? (
+            <span key={a.id}>
               <Link to={`animals/${a.id}`}>{a.name}</Link>
-            </p>
+            </span>
+          ) : (
+            <span key={a.id}>
+              <Link key={a.id} to={`animals/${a.id}`}>
+                {a.name}
+              </Link>{", "}
+            </span>
           );
         })}
       </h5>
